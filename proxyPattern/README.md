@@ -169,7 +169,7 @@ NullPointerException - 如果 interfaces 数组参数或其任何元素为 null�
   20. 	@Override
   21. 	public Object invoke(Object proxy, Method method, Object[] args)
   22. 			throws Throwable {
-  23. 		System.out.println("args="+args[0]);
+  23. 		// System.out.println("args="+args[0]);
   24. 		log(method.getName());
   25. 		Object result = method.invoke(target, args);
   26. 		return result;
