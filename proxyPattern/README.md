@@ -181,5 +181,82 @@ NullPointerException - 如果 interfaces 数组参数或其任何元素为 null�
 ```
 
 一个动态代理可以某一类的业务，一个动态代理可以代理多个类。
+## 源码分析流程
+### Proxy 类
+
+```
+// 映射表：用于维护类装载器对象到其对应的代理类缓存
+private static Map loaderToCache = new WeakHashMap(); 
+
+// 标记：用于标记一个动态代理类正在被创建中
+private static Object pendingGenerationMarker = new Object(); 
+
+// 同步表：记录已经被创建的动态代理类类型，主要被方法 isProxyClass 进行相关的判断
+private static Map proxyClasses = Collections.synchronizedMap(new WeakHashMap()); 
+
+// 关联的调用处理器引用
+protected InvocationHandler h;
+```
+### Proxy 静态方法 newProxyInstance
+
+```
+public static Object newProxyInstance(ClassLoader loader, 
+            Class<?>[] interfaces, 
+            InvocationHandler h) 
+            throws IllegalArgumentException { 
+
+    // 检查 h 不为空，否则抛异常
+    if (h == null) { 
+        throw new NullPointerException(); 
+    } 
+
+    // 获得与制定类装载器和一组接口相关的代理类类型对象
+    /*
+     * Look up or generate the designated proxy class.
+     */
+        Class<?> cl = getProxyClass0(loader, interfaces); 
+
+    // 通过反射获取构造函数对象并生成代理类实例
+    /*
+     * Invoke its constructor with the designated invocation handler.
+     */
+    try {
+            final Constructor<?> cons = cl.getConstructor(constructorParams);
+            final InvocationHandler ih = h;
+            SecurityManager sm = System.getSecurityManager();
+            if (sm != null && ProxyAccessHelper.needsNewInstanceCheck(cl)) {
+                // create proxy instance with doPrivilege as the proxy class may
+                // implement non-public interfaces that requires a special permission
+                return AccessController.doPrivileged(new PrivilegedAction<Object>() {
+                    public Object run() {
+                        return newInstance(cons, ih);
+                    }
+                });
+            } else {
+                return newInstance(cons, ih);
+            }
+    } catch (NoSuchMethodException e) {
+        throw new InternalError(e.toString());
+    } 
+    }
+
+private static Object newInstance(Constructor<?> cons, InvocationHandler h) {
+        try {
+            return cons.newInstance(new Object[] {h} );
+        } catch (IllegalAccessException e) {
+            throw new InternalError(e.toString());
+        } catch (InstantiationException e) {
+            throw new InternalError(e.toString());
+        } catch (InvocationTargetException e) {
+            Throwable t = e.getCause();
+            if (t instanceof RuntimeException) {
+                throw (RuntimeException) t;
+            } else {
+                throw new InternalError(t.toString());
+            }
+        }
+    }
+```
+
 
 
