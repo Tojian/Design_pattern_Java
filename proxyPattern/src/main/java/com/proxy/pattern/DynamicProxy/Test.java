@@ -6,13 +6,25 @@ package com.proxy.pattern.DynamicProxy;
 public class Test {
 
     public static void main(String[] args) {
+
         Rent host = new Host();
+
+        /*******************************=====jdk=====**************************************/
+
         DynamicProxyHandler dynamicProxyHandler = new DynamicProxyHandler();
         // Host proxy = (Host) dynamicProxyHandler.getProxy();
         //绑定代理对象。
-         host= (Rent) dynamicProxyHandler.getProxy(host);
+        host = (Rent) dynamicProxyHandler.getProxy(host);
         //这里service经过绑定，就会进入invoke方法里面了。
         System.out.println(host);
-         host.rent();
+        host.rent();
+
+        /**********************======cglib======******************************************/
+
+        MyCglibProxy myCglibProxy = new MyCglibProxy();
+
+        host = (Rent) myCglibProxy.getProxyInstance(myCglibProxy);
+        System.out.println(host);
+        host.rent();
     }
 }

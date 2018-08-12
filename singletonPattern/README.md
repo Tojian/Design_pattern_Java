@@ -17,6 +17,16 @@ A、懒汉单例模式：在第一次调用的时候实例化本身，在并发�
 B、饿汉单例模式：在类初始化时，已经自行实例化一个静态对象，所以本身就是线程安全的
 
 C、登记单例模式：通过一个专门的类对各单例模式的单一实例进行管理和维护
+
+# 图解
+
+<div align="center"> <img src="../images//static.png" width=""/> </div><br>
+>
+说明 ： uml 图示 </p>
+公共可见性（Public Visibility） +</p>
+保护可见性（Protected Visibility） # </p>
+私有可见性（Private Visibility） -</p>
+
 #### 详细说明 （推荐饿汉式）
 1.如果getInstance()的性能对应用程序不是很关键，就什么都别做</p>
 2.使用急切创建实例，而不是用延迟实例化的方法。这种方式也叫做饿汉式的单例模式
@@ -98,3 +108,87 @@ private：只能被自己访问和修改
 protected：自身、子类及同一个包中类可以访问
 
 default：同一包中的类可以访问，声明时没有加修饰符，认为是friendly。
+
+## Jdk 1.8 源码分析
+
+### java.lang.Runtime#getRuntime 采用的是饿汉式的方式。
+
+```java
+public class Runtime {
+    private static Runtime currentRuntime = new Runtime();
+
+    /**
+     * Returns the runtime object associated with the current Java application.
+     * Most of the methods of class <code>Runtime</code> are instance
+     * methods and must be invoked with respect to the current runtime object.
+     *
+     * @return  the <code>Runtime</code> object associated with the current
+     *          Java application.
+     */
+    public static Runtime getRuntime() {
+        return currentRuntime;
+    }
+
+    /** Don't let anyone else instantiate this class */
+    private Runtime() {}
+
+```
+### java.awt.Desktop#getDesktop()
+
+```java
+  /**
+     * Returns the <code>Desktop</code> instance of the current
+     * browser context.  On some platforms the Desktop API may not be
+     * supported; use the {@link #isDesktopSupported} method to
+     * determine if the current desktop is supported.
+     * @return the Desktop instance of the current browser context
+     * @throws HeadlessException if {@link
+     * GraphicsEnvironment#isHeadless()} returns {@code true}
+     * @throws UnsupportedOperationException if this class is not
+     * supported on the current platform
+     * @see #isDesktopSupported()
+     * @see java.awt.GraphicsEnvironment#isHeadless
+     */
+    public static synchronized Desktop getDesktop(){
+        if (GraphicsEnvironment.isHeadless()) throw new HeadlessException();
+        if (!Desktop.isDesktopSupported()) {
+            throw new UnsupportedOperationException("Desktop API is not " +
+                                                    "supported on the current platform");
+        }
+
+        sun.awt.AppContext context = sun.awt.AppContext.getAppContext();
+        Desktop desktop = (Desktop)context.get(Desktop.class);
+
+        if (desktop == null) {
+            desktop = new Desktop();
+            context.put(Desktop.class, desktop);
+        }
+
+        return desktop;
+    }
+```
+
+### java.lang.System#getSecurityManager() 
+```java
+
+
+    /* The security manager for the system.
+     */
+    private static volatile SecurityManager security = null;
+
+
+    /**
+     * Gets the system security interface.
+     *
+     * @return  if a security manager has already been established for the
+     *          current application, then that security manager is returned;
+     *          otherwise, <code>null</code> is returned.
+     * @see     #setSecurityManager
+     */
+    public static SecurityManager getSecurityManager() {
+        return security;
+    }
+    
+```
+ 
+ 
