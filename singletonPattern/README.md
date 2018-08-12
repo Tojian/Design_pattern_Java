@@ -21,7 +21,7 @@ C、登记单例模式：通过一个专门的类对各单例模式的单一实�
 # 图解
 
 <div align="center"> <img src="../images//static.png" width=""/> </div><br>
->
+
 说明 ： uml 图示 </p>
 公共可见性（Public Visibility） +</p>
 保护可见性（Protected Visibility） # </p>
