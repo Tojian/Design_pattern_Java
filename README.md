@@ -12,9 +12,9 @@
 
 * Builder （创建者）
 
-* Abstract Factory （抽象工厂）
+* [Abstract Factory （抽象工厂）](https://github.com/Tojian/Design_pattern_Java/tree/master/factoryPattern)
 
-* Factory Method （工厂方法）
+* [Factory Method （工厂方法）](https://github.com/Tojian/Design_pattern_Java/tree/master/factoryPattern)
 
 * Prototype （原型模式）
 
@@ -23,13 +23,13 @@
 
 ### 结构模式 （7种）
 
-* Adapter （适配器）
+* [Adapter （适配器）](https://github.com/Tojian/Design_pattern_Java/tree/master/adapterPattern)
 
 * Bridge （桥接模式）
 
 * Composite （组合模式）
 
-* Decorator （装饰模式）
+* [Decorator （装饰模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/decoratorPattern)
 
 * Facade （外观模式）
 
@@ -51,7 +51,7 @@
 
 * Memento（备忘录模式）
 
-* Observer（观察者模式）
+* [Observer（观察者模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/observerPattern)
 
 * State（状态模式）
 

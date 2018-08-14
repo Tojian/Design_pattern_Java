@@ -1,8 +1,10 @@
-# 装饰者模式
-给爱用继承的人一个全新设计眼界
+# Decortor Pattern 装饰者模式
+###给爱用继承的人一个全新设计眼界
 
+## 图示
 
-开发-关闭原则
+<div align="center"> <img src="../images//decorator.png" width=""/> </div><br>
+##开发-关闭原则
 
 类应该对拓展开发，对修改关闭
 
@@ -12,19 +14,22 @@
 
 装饰者和被装饰者必须是一样的类型，也就是有共同的超类，这是相当关键的地方，在这里，我们用继承达到“类型匹配”，而不是利用继承获得”行为“
 
-真实世界中的装饰者java： I/O
+## 真实世界中的装饰者java： I/O
 
 BufferedInputStream及LineNumberInputStream都扩展自FilterInputStream.而FilterInputStream是一个抽象的装饰类
-主体介绍：
+
+### 主体介绍：
+
 LineNumberInputStream也是一个具体的“装饰者”它加上了计算行数的能力
 BufferedInputStream是一个具体的“装饰者”，它加入两种行为：利用缓冲输入来改进性能；用readLine()方法（用来一次读取一行文本输入数据）来增强接口
 
 FilterInputStream是被装饰的组件。java I/O程序提供了几个组件，包括了FilInputStream,StringBuffer,.....这些类提供了最基本的字节读取功能。
 
-#### 举例子
+## 举例子
+
   假如有一块蛋糕，如果上面只涂上奶油，其他什么都不加，就是奶油蛋糕。如果在上面加上草莓，那就是草莓奶油蛋糕。如果在上面加点巧克力，再写上名字，那就是一块生日蛋糕（图解设计模式，这个例子我感觉特别好）
   
-#### 示例图解
+## 示例图解
 
 名字| 说明
 ---|---
@@ -37,7 +42,7 @@ Main | 测试程序行为的类
 
 ![image](https://github.com/Tojian/Design_pattern_Java/blob/master/images/1.JPG)
 
-#### Decorator模式的角色组成
+## Decorator模式的角色组成
 
 ——抽象构件角色(Component)
 
