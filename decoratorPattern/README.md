@@ -4,7 +4,7 @@
 ## 图示
 
 <div align="center"> <img src="../images//decorator.png" width=""/> </div><br>
-##开发-关闭原则
+## 开发-关闭原则
 
 类应该对拓展开发，对修改关闭
 

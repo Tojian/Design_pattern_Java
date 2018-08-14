@@ -16,7 +16,7 @@
 
 * [Factory Method （工厂方法）](https://github.com/Tojian/Design_pattern_Java/tree/master/factoryPattern)
 
-* Prototype （原型模式）
+* [Prototype （原型模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/prototypePattern)
 
 * [Singleton （单例模式)](https://github.com/Tojian/Design_pattern_Java/tree/master/singletonPattern)
 
@@ -57,8 +57,11 @@
 
 * Strategy （策略模式）
 
-* Template Method （模板方法）
+* [Template Method （模板方法）](https://github.com/Tojian/Design_pattern_Java/tree/master/templateMethodPattern)
 
 * Visitor（访问者模式）
 
+---
 
+
+##### 注 ：只是读书笔记，笔记和代码 参考《图解设计模式》、《head first》、 网上博客
