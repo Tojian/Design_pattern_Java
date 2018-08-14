@@ -57,7 +57,7 @@
 
 * Strategy （策略模式）
 
-* [Template Method （模板方法）](https://github.com/Tojian/Design_pattern_Java/tree/master/templateMethodPattern)
+* [Template Method （模板方法）](https://github.com/Tojian/Design_pattern_Java/tree/master/templatemethodPattern)
 
 * Visitor（访问者模式）
 
