@@ -10,7 +10,7 @@
 
 ### 构建模式 （5种）
 
-* Builder （创建者）
+* [Builder （创建者）](https://github.com/Tojian/Design_pattern_Java/tree/master/builderPattern)
 
 * [Abstract Factory （抽象工厂）](https://github.com/Tojian/Design_pattern_Java/tree/master/factoryPattern)
 
@@ -25,7 +25,7 @@
 
 * [Adapter （适配器）](https://github.com/Tojian/Design_pattern_Java/tree/master/adapterPattern)
 
-* Bridge （桥接模式）
+* [Bridge （桥接模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/bridgePattern)
 
 * Composite （组合模式）
 
@@ -45,7 +45,7 @@
 
 * Interpreter （解释器模式）
 
-* Iterator（迭代器模式）
+* [Iterator（迭代器模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/iteratorPattern)
 
 * Mediator（中介者模式）
 
