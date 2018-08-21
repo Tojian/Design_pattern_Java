@@ -2,7 +2,7 @@
 ----
 
 # Introduction
---
+----
 设计模式（Design Pattern）是一套被反复使用、多数人知晓的、经过分类的、代码设计经验的总结。
 使用设计模式的目的：为了代码可重用性、让代码更容易被他人理解、保证代码可靠性。 设计模式使代码编写真正工程化；设计模式是软件工程的基石脉络，如同大厦的结构一样。(from baidu)
 
@@ -57,7 +57,7 @@
 
 * Strategy （策略模式）
 
-* [Template Method （模板方法）](https://github.com/Tojian/Design_pattern_Java/tree/master/templateMethodPattern)
+* [Template Method （模板方法）](https://github.com/Tojian/Design_pattern_Java/tree/master/templatemethodPattern)
 
 * Visitor（访问者模式）
 
