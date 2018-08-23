@@ -27,19 +27,21 @@
 
 * [Bridge （桥接模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/bridgePattern)
 
-* Composite （组合模式）
+* [Composite （组合模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/compositePattern)
 
 * [Decorator （装饰模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/decoratorPattern)
 
-* Facade （外观模式）
+* [Facade （外观模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/facadePattern)
 
-* Flyweight （享元模式）
+* [Flyweight （享元模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/flyweightPattern)
+
 
 * [ Proxy （代理模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/proxyPattern) 
 
 ### 行为模式 （11种）
 
-* Chain of Responsibility （职责链模式）
+* [Chain of Responsibility （职责链模式）](https://github.com/Tojian/Design_pattern_Java/tree/master/chainofResponsibilityPattern)
+
 
 * Command （命令模式）
 
