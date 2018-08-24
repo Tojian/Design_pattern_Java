@@ -7,7 +7,7 @@
 使用设计模式的目的：为了代码可重用性、让代码更容易被他人理解、保证代码可靠性。 设计模式使代码编写真正工程化；设计模式是软件工程的基石脉络，如同大厦的结构一样。(from baidu)
 
 ## 目录(23种)
-
+<div align="center"> <img src="images//pattern.jpeg" width=""/> </div><br>
 ### 构建模式 （5种）
 
 * [Builder （创建者）](https://github.com/Tojian/Design_pattern_Java/tree/master/builderPattern)
