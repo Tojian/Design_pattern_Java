@@ -8,6 +8,7 @@
 
 ## 目录(23种)
 <div align="center"> <img src="images//pattern.jpeg" width=""/> </div><br>
+
 ### 构建模式 （5种）
 
 * [Builder （创建者）](https://github.com/Tojian/Design_pattern_Java/tree/master/builderPattern)
